@@ -1,4 +1,4 @@
-# :buld: UX Design :java:
+# :blush: UX Design :coffee:
 **************************************************
 ## Requirements:
 * Java
@@ -198,4 +198,4 @@ spring.datasource.password=you-own-password
 ```
 Replace the url, username, and password values with your own PostgreSQL database connection details.
 
-Everything is ready. Happy coding :heart: :Lightning:
+Everything is ready. Happy coding :heart: :zap:
