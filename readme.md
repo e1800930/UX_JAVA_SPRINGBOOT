@@ -8,7 +8,7 @@
 * POSTMAN
 * Minukube/Kubernetes
 * IntelliJIDEA Ultimate Edition --only the Ultimnate Edition has fully support for springboot application
-
+</br>
 ## Background technology:
 ### Springboot
 ![PIC1](https://www.openxcell.com/wp-content/uploads/2022/09/What-are-the-Main-Features-of-Spring.jpg)
@@ -56,7 +56,7 @@ IntelliJ IDEA provides a wide range of features to enhance developer productivit
 The ultimate edition of IntelliJ IDEA includes additional features such as support for advanced frameworks like Spring, Play, and Hibernate, and support for multiple application servers. It also includes additional tools for working with databases, web services, and mobile development.
 
 Overall, IntelliJ IDEA is a powerful and versatile IDE that can be used for a wide range of development tasks.
-
+</br>
 ## Set up for Springboot:
 [Springboot](https://start.spring.io/)
 
@@ -69,7 +69,7 @@ Requirements:
 * Snapshot 3.0.4
 * Java 17
 * Maven
-
+</br>
 ## Create a secure connection with PostgreSQL using Minikube
 ### Pgadmin4 installation
 [Link](https://www.pgadmin.org/download/)
@@ -83,7 +83,7 @@ For Linux
 
 For MAC
 [Link](https://matthewpalmer.net/kubernetes-app-developer/articles/guide-install-kubernetes-mac.html)
-
+</br>
 ### Kubernetes && PostgreSQL 
 #### The 1st connection set up:
 Create a postgresql config in any directory to enable connection.
@@ -156,8 +156,8 @@ export the yaml file with this command
 kubectl apply -f postgres.yaml
 ```
 
-
-#### Connect Minikube to PostgreSQL:
+</br>
+#### Using Minikube to create a connection to PostgreSQL :
 Connect to the PostgreSQL database using psql. First, get the name of the pod running the PostgreSQL database by running the following command:
 
 
@@ -193,7 +193,7 @@ psql -h localhost -p 5432 -U postgres -d accountservice
 
 ```
 
-
+</br>
 Note that you can not try this:
 
 Connect to your PostgreSQL database using psql. You can do this by running the following command:
@@ -201,14 +201,17 @@ Connect to your PostgreSQL database using psql. You can do this by running the f
 ```
 kubectl exec -it <pod_name> -- psql -U <username> <database_name>
 ```
-<i><b>Because: you cannot use kubectl exec to connect to the PostgreSQL server like you did with psql -h localhost -p 5432 -U postgres -d accountservice. kubectl exec allows you to execute a command inside a container running in a pod, but it doesn't provide the network connection necessary to reach the PostgreSQL server.
+<i><red>Because: you cannot use kubectl exec to connect to the PostgreSQL server like you did with psql -h localhost -p 5432 -U postgres -d accountservice. kubectl exec allows you to execute a command inside a container running in a pod, but it doesn't provide the network connection necessary to reach the PostgreSQL server.
 
-Instead, you should use kubectl port-forward to forward traffic from your local machine to the PostgreSQL service running in the Kubernetes cluster.</b></i>
+Instead, you should use kubectl port-forward to forward traffic from your local machine to the PostgreSQL service running in the Kubernetes cluster.</red></i>
 
 
-
+</br>
 Testing the connection:
-Once you are connected to your PostgreSQL database, you can create a new table by running a CREATE TABLE command. For example, you can create a table called users with columns for id, name, and email like this:
+
+Once you are connected to your PostgreSQL database, you can create a new table by running a CREATE TABLE command. 
+
+For example, you can create a table called users with columns for id, name, and email like this:
 
 ```
 CREATE TABLE users (
@@ -221,7 +224,7 @@ CREATE TABLE users (
 
 As if Minikube is sucessfully connected to PostgreSQL. Then you will be able to view this latest edit on [Pgadmin4 page](https://127.0.0.1/pgadmin4/)
 
-
+</br>
 ### Starting the application with IntelliJIDEA
 #### properties Settings :
 Remember to make a config file for the database connection properties in your application.properties file:
