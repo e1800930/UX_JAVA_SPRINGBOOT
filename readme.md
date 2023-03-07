@@ -8,7 +8,9 @@
 * POSTMAN
 * Minukube/Kubernetes
 * IntelliJIDEA Ultimate Edition --only the Ultimnate Edition has fully support for springboot application
+
 </br>
+
 ## Background technology:
 ### Springboot
 ![PIC1](https://www.openxcell.com/wp-content/uploads/2022/09/What-are-the-Main-Features-of-Spring.jpg)
@@ -56,7 +58,9 @@ IntelliJ IDEA provides a wide range of features to enhance developer productivit
 The ultimate edition of IntelliJ IDEA includes additional features such as support for advanced frameworks like Spring, Play, and Hibernate, and support for multiple application servers. It also includes additional tools for working with databases, web services, and mobile development.
 
 Overall, IntelliJ IDEA is a powerful and versatile IDE that can be used for a wide range of development tasks.
+
 </br>
+
 ## Set up for Springboot:
 [Springboot](https://start.spring.io/)
 
@@ -83,7 +87,9 @@ For Linux
 
 For MAC
 [Link](https://matthewpalmer.net/kubernetes-app-developer/articles/guide-install-kubernetes-mac.html)
+
 </br>
+
 ### Kubernetes && PostgreSQL 
 #### The 1st connection set up:
 Create a postgresql config in any directory to enable connection.
@@ -157,6 +163,7 @@ kubectl apply -f postgres.yaml
 ```
 
 </br>
+
 #### Using Minikube to create a connection to PostgreSQL :
 Connect to the PostgreSQL database using psql. First, get the name of the pod running the PostgreSQL database by running the following command:
 
@@ -225,6 +232,7 @@ CREATE TABLE users (
 As if Minikube is sucessfully connected to PostgreSQL. Then you will be able to view this latest edit on [Pgadmin4 page](https://127.0.0.1/pgadmin4/)
 
 </br>
+
 ### Starting the application with IntelliJIDEA
 #### properties Settings :
 Remember to make a config file for the database connection properties in your application.properties file:
