@@ -201,9 +201,10 @@ Connect to your PostgreSQL database using psql. You can do this by running the f
 ```
 kubectl exec -it <pod_name> -- psql -U <username> <database_name>
 ```
-<b>Because: you cannot use kubectl exec to connect to the PostgreSQL server like you did with psql -h localhost -p 5432 -U postgres -d accountservice. kubectl exec allows you to execute a command inside a container running in a pod, but it doesn't provide the network connection necessary to reach the PostgreSQL server.</b>
+<i><b>Because: you cannot use kubectl exec to connect to the PostgreSQL server like you did with psql -h localhost -p 5432 -U postgres -d accountservice. kubectl exec allows you to execute a command inside a container running in a pod, but it doesn't provide the network connection necessary to reach the PostgreSQL server.
 
-Instead, you should use kubectl port-forward to forward traffic from your local machine to the PostgreSQL service running in the Kubernetes cluster.
+Instead, you should use kubectl port-forward to forward traffic from your local machine to the PostgreSQL service running in the Kubernetes cluster.</b></i>
+
 
 
 Testing the connection:
@@ -219,6 +220,7 @@ CREATE TABLE users (
 ```
 
 As if Minikube is sucessfully connected to PostgreSQL. Then you will be able to view this latest edit on [Pgadmin4 page](https://127.0.0.1/pgadmin4/)
+
 
 ### Starting the application with IntelliJIDEA
 #### properties Settings :
