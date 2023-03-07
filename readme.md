@@ -143,26 +143,58 @@ Server
             ...
 ```
 
-Save the file as "postgres.yaml" and export it with this command:
-
-```
-kubectl apply -f postgres.yaml
-```
-
-#### Connect Minikube to PostgreSQL:
+Save the file as "postgres.yaml" , then run the minikube & export the yaml file with this command:
 Start minikube with the docker driver using the following command:
 
 ```
 minikube start --vm-driver=docker
 ```
 
+
+export the yaml file with this command
+```
+kubectl apply -f postgres.yaml
+```
+
+
+#### Connect Minikube to PostgreSQL:
 Connect to the PostgreSQL database using psql. First, get the name of the pod running the PostgreSQL database by running the following command:
 
-```
-kubectl get pods
-```
-This will show you a list of all the pods in your Kubernetes cluster. Look for the pod that is running the PostgreSQL database.
 
+You can use the following commands to check the status of your deployment and service:
+```
+kubectl get deployment postgres
+kubectl get service postgres
+```
+
+If the deployment and service are running correctly, you should see output similar to the following:
+
+```
+$ kubectl get deployment postgres
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+postgres   1/1     1            1           2d
+
+$ kubectl get service postgres
+NAME       TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+postgres   ClusterIP   10.100.42.197   <none>        5432/TCP   2d
+
+```
+
+If the service is of type ClusterIP, you won't be able to connect to it directly from outside the cluster. Instead, you need to use a port-forwarding command to forward traffic from your local machine to the service. You can do this with the following command:
+
+```
+kubectl port-forward service/postgres 5432:5432
+```
+
+This will forward traffic from port 5432 on your local machine to port 5432 on the postgres service in the cluster. Once this is done, you should be able to connect to the PostgreSQL server using psql on your local machine:
+
+```
+psql -h localhost -p 5432 -U postgres -d accountservice
+
+```
+
+
+Or you can try with this options:
 
 Connect to your PostgreSQL database using psql. You can do this by running the following command:
 
