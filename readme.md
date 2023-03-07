@@ -243,6 +243,6 @@ spring.datasource.username=postgres
 spring.datasource.password=you-own-password
 
 ```
-Replace the url, username, and password values with your own PostgreSQL database connection details.
+Replace the url, username, and password values with your own PostgreSQL database connection details. 
 
 Everything is ready. Happy coding :heart: :zap:
