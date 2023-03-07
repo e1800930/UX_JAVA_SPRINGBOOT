@@ -194,14 +194,16 @@ psql -h localhost -p 5432 -U postgres -d accountservice
 ```
 
 
-Or you can try with this options:
+Note that you can not try this:
 
 Connect to your PostgreSQL database using psql. You can do this by running the following command:
 
 ```
 kubectl exec -it <pod_name> -- psql -U <username> <database_name>
 ```
-Replace <pod_name> with the name of the pod running your PostgreSQL container, <username> with the username for your PostgreSQL database (in your case, postgres), and <database_name> with the name of the database you want to connect to (in your case, accountservice).
+<b>Because: you cannot use kubectl exec to connect to the PostgreSQL server like you did with psql -h localhost -p 5432 -U postgres -d accountservice. kubectl exec allows you to execute a command inside a container running in a pod, but it doesn't provide the network connection necessary to reach the PostgreSQL server.</b>
+
+Instead, you should use kubectl port-forward to forward traffic from your local machine to the PostgreSQL service running in the Kubernetes cluster.
 
 
 Testing the connection:
