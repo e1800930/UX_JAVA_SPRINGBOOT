@@ -260,6 +260,18 @@ kubectl run -it --rm --image=postgres --restart=Never postgres-client -- psql po
 
 ```
 
+
+OR:
+
+```
+machine@1666:~$ kubectl get pods
+NAME                        READY   STATUS              RESTARTS   AGE
+postgres-5f6d854bb8-dwbhk   1/1     Running             0          37s
+postgres-client             0/1     ContainerCreating   0          12s
+
+machine@1666:~$kubectl exec -it postgres-5f6d854bb8-dwbhk -- psql -U postgres -d accountservice
+```
+
 </br>
 
 In this command, 'postgres' is the name of the Docker 'image' for the official PostgreSQL container. 
