@@ -252,6 +252,14 @@ psql -h localhost -p 5432 -U postgres -d accountservice
 ```
 kubectl run -it --rm --image=postgres --restart=Never postgres-client -- psql postgresql://postgres:your-own-password@postgres:5432/your-db-name
 ```
+
+For special characters, you can try with this:
+
+```
+kubectl run -it --rm --image=postgres --restart=Never postgres-client -- psql postgres://postgres:'@@_%11newpassword'@postgres:5432/accountservice
+
+```
+
 </br>
 
 In this command, 'postgres' is the name of the Docker 'image' for the official PostgreSQL container. 
