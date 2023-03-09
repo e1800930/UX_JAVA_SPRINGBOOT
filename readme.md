@@ -219,13 +219,13 @@ Instead, you should use kubectl port-forward to forward traffic from your local 
 ```
 kubectl run -it --rm --image=postgres --restart=Never postgres-client -- psql postgresql://postgres:your-own-password@postgres:5432/your-db-name
 ```
-
+</br>
 In this command, 'postgres' is the name of the Docker 'image' for the official PostgreSQL container. 
 
 'your-own-passowrd' is the password you specified when you created the PostgreSQL deployment and 'your-db-name' is the name of the database you want to connect to. 
 
 You can replace these values with your own credentials and database name as needed.
-
+</br></br>
 <i>Alternatively: 
 With 'kubectl run' command to create a new pod with the Postgres client image and connect to a new, empty database, any data you add to that database will be lost when the pod is deleted.
 
