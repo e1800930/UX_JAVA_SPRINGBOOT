@@ -165,6 +165,7 @@ kubectl apply -f postgres.yaml
 </br>
 
 #### Using Minikube to create a connection to PostgreSQL :
+##### Connecting to a existed database which can be viewed on pgadmin4:
 Connect to the PostgreSQL database using psql. First, get the name of the pod running the PostgreSQL database by running the following command:
 
 
@@ -213,8 +214,29 @@ kubectl exec -it <pod_name> -- psql -U <username> <database_name>
 Instead, you should use kubectl port-forward to forward traffic from your local machine to the PostgreSQL service running in the Kubernetes cluster.</red></i>
 
 
+##### Connecting to a totally new database inside the cluster:
+
+```
+kubectl run -it --rm --image=postgres --restart=Never postgres-client -- psql postgresql://postgres:your-own-password@postgres:5432/your-db-name
+```
+
+In this command, 'postgres' is the name of the Docker 'image' for the official PostgreSQL container. 
+
+'your-own-passowrd' is the password you specified when you created the PostgreSQL deployment and 'your-db-name' is the name of the database you want to connect to. 
+
+You can replace these values with your own credentials and database name as needed.
+
+<i>Alternatively: 
+With 'kubectl run' command to create a new pod with the Postgres client image and connect to a new, empty database, any data you add to that database will be lost when the pod is deleted.
+
+When you restart Kubernetes, the pod created by the kubectl run command will be deleted, and a new pod will be created based on the configuration in your deployment yaml file. 
+
+If you have not configured your deployment to use a persistent volume to store the database data, any changes you made to the database will be lost and the database will be empty again.
+</i>
+
 </br>
-Testing the connection:
+
+##### Testing the connection:
 
 Once you are connected to your PostgreSQL database, you can create a new table by running a CREATE TABLE command. 
 
